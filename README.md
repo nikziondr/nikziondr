@@ -1,4 +1,4 @@
-### Hi there 👋
+### Hello, Nikson here. I'm hoping to become fluent in all this stuff and start a new career!
 
 <!--
 **nikziondr/nikziondr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
