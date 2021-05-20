@@ -17,23 +17,7 @@ class Category:
         budget.amount -= amount_entered
         return print("You have withdrawn ${} in {} category".format(amount_entered, self.category))
 
-    def transfer(self, budget):
-        food_cat = Category("Food", 500)
-        clothing_cat = Category('Clothing', 100)
-        car_cat = Category("Car", 300)
-
-        account_choice = int(input('Current budget selected: {}, which budget would you like to transfer money out of?\n 1.Food 2.Clothing 3.Car\n'.format(budget.category)))
-        
-        
-        if account_choice == 1:
-            account_choice = food_cat
-        elif account_choice  == 2:
-            account_choice = clothing_cat
-        elif account_choice == 3:
-            account_choice = car_cat
-        else:
-            print('Choose a valid option')
-            budget.transfer(budget)
+    def transfer(self, budget, account_choice):
         
         transfer_amount = int(input('How much do you want to transfer? \n'))
 
@@ -43,8 +27,11 @@ class Category:
             return print("Transfer between budget accounts completed")
         else:
             print('Cannot transfer to same budget, please choose another option')
-            budget.transfer(budget)
+            operations(budget)
 
+food_cat = Category("Food", 500)
+clothing_cat = Category('Clothing', 100)
+car_cat = Category("Car", 300)
 
 def initial():
     print("welcome to the budget program \n")
@@ -82,7 +69,16 @@ def operations(budget):
         operations(budget)
 
     elif operation == 4:
-        budget.transfer(budget)
+        account_choice = int(input('Current budget selected: {}, which budget would you like to transfer money out of?\n 1.Food 2.Clothing 3.Car\n'.format(budget.category)))
+
+        if account_choice == 1:
+            account_choice = food_cat
+        elif account_choice  == 2:
+            account_choice = clothing_cat
+        elif account_choice == 3:
+            account_choice = car_cat
+        
+        budget.transfer(budget, account_choice)
         operations(budget)
 
     elif operation == 5:
